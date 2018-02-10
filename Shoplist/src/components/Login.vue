@@ -1,13 +1,12 @@
 <template>
   <div id="firebaseui-auth-container" class="login">
-      <!-- <h3>Sign in</h3>
-      <input type="text" placeholder="Email"><br>
-      <input type="password" placeholder="Password"><br>
-      <Button>Login</Button> -->
+      
   </div>
 </template>
 
 <script>
+    var firebase = require('firebase');
+    var firebaseui = require('firebaseui');
     export default {
         name: 'login',
         data: function() {
@@ -15,11 +14,10 @@
         },
         methods: {}
     }
-    var firebase = require('firebase');
 
     // FirebaseUI config.
     var uiConfig = {
-    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInSuccessUrl: '',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
@@ -29,7 +27,7 @@
     };
 
     // Initialize the FirebaseUI Widget using Firebase.
-    var firebaseui = require('firebaseui');
+    
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);

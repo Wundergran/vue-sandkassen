@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data: function() {
+      return {
+        user: {}
+      }
+  }
 }
 
 // Initialize Firebase
@@ -19,14 +24,17 @@ var config = {
   projectId: 'shoplist-2f2a0',
   storageBucket: 'shoplist-2f2a0.appspot.com',
   messagingSenderId: '275802183767'
-};
-firebase.initializeApp(config);
+}
+
+firebase.initializeApp(config)
 firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
             console.log(user.displayName + " " + user.email)
+            this.user = user
           }
 })
+var database = firebase.database
 
 </script>
 
