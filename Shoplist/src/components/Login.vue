@@ -33,7 +33,7 @@
 </script>
 
 <style scoped>
-    .login{
+    .login {
         height: 32px;
     }
 </style>
