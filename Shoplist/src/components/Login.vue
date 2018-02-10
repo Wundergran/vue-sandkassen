@@ -1,9 +1,9 @@
 <template>
-  <div class="login">
-      <h3>Sign in</h3>
+  <div id="firebaseui-auth-container" class="login">
+      <!-- <h3>Sign in</h3>
       <input type="text" placeholder="Email"><br>
       <input type="password" placeholder="Password"><br>
-      <Button>Login</Button>
+      <Button>Login</Button> -->
   </div>
 </template>
 
@@ -15,6 +15,7 @@
         },
         methods: {}
     }
+    var firebase = require('firebase');
 
     // FirebaseUI config.
     var uiConfig = {
@@ -28,7 +29,6 @@
     };
 
     // Initialize the FirebaseUI Widget using Firebase.
-    var firebase = require('firebase');
     var firebaseui = require('firebaseui');
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // The start method will wait until the DOM is loaded.
