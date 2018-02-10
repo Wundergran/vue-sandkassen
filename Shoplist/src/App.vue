@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import 'vue-material/dist/vue-material.min.css'
 export default {
   name: 'App',
   data: function() {

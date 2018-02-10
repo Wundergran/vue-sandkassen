@@ -1,10 +1,13 @@
 <template>
-    <div id="card-container">
-        <ShoplistCard data="sample"></ShoplistCard>
+    <div id="CardsView">
+        <ShoplistCard v-bind:dataset="sample"></ShoplistCard>
     </div>
 </template>
 
 <script>
+import ShoplistCard from './ShoplistCard.vue'
+
+var Vue = require('vue')
 var firebase = require('firebase')
 export default {
   name: 'CardsView',
@@ -36,6 +39,9 @@ export default {
               title: "Some title"
           }
       }
+  },
+  components: {
+      ShoplistCard
   }
 }
 </script>

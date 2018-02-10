@@ -1,6 +1,8 @@
 <template>
-  <div flex>
-
+  <div id="shoplist-card">
+    <div class="card md-elevation-5">
+      <h3>{{listData.title}}</h3>
+    </div>
   </div>
 </template>
 
@@ -8,13 +10,21 @@
 export default {
   name: 'ShoplistCard',
   props: {
-      listData: {
-          type: Object
-      }
+    dataset: {
+      type: Object
+    }
+  },
+  data: function() {
+    return {
+      listData: this.dataset
+    }
   }
 }
 </script>
 
 <style scoped>
-
+  .card{
+    min-height: 50px;
+    max-width: 200px;
+  }
 </style>
