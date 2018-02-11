@@ -7,14 +7,6 @@
 
 <script>
 import 'vue-material/dist/vue-material.min.css'
-export default {
-  name: 'App',
-  data: function() {
-      return {
-        user: {}
-      }
-  }
-}
 
 // Initialize Firebase
 var firebase = require('firebase');
@@ -27,16 +19,31 @@ var config = {
   messagingSenderId: '275802183767'
 }
 
+
 firebase.initializeApp(config)
+var database = firebase.database()
+var userdbRef
 firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
             console.log(user.displayName + " " + user.email)
             this.user = user
+            userdbRef = database.ref('users/' + user.uid + '/shoplists')
           }
 })
-var database = firebase.database
 
+
+export default {
+  name: 'App',
+  data: function() {
+      return {
+        user: {}
+      }
+  },
+  firebase: {
+    listsRef: userdbRef
+  }
+}
 </script>
 
 <style>

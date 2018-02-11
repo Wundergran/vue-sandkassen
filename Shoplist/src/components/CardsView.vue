@@ -1,7 +1,8 @@
 <template>
     <div id="CardsView">
-    
-        <ShoplistCard v-for="ref in shoplistRefs" :key="ref" v-bind:dataset="ref"></ShoplistCard>
+    <div v-for="ref in shoplistRefs" :key="ref">
+        <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
+    </div>
         
     </div>
 </template>
@@ -17,28 +18,26 @@ export default {
     data: function() {
         return {
             user: {},
-            shoplistRefs: {}
+            shoplistRefs: []
         }
+    },
+    created: function() {
+        /* firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                this.user = user
+                var listRef = firebase.database().ref('users/' + this.user.uid + '/shoplists')
+                listRef.on('value', function(snapshot) {
+                    var listArray = Object.keys(snapshot.val())
+                    this.shoplistRefs = listArray
+                    console.log(listArray)
+                })
+            }
+        }) */
     },
     components: {
         ShoplistCard
     }
 }
-
-firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            this.user = user
-
-            var listRef = firebase.database().ref('users/' + this.user.uid + '/shoplists')
-            var self = this
-            listRef.on('value', function(snapshot) {
-                self.set(self.shoplistRefs, snapshot.val())
-                //self.shoplistRefs = snapshot.val()
-                console.log(snapshot.val())
-            });
-          }
-})
 
 
 </script>
