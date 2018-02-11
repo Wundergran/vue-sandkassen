@@ -26,5 +26,8 @@ export default {
   .card{
     min-height: 50px;
     max-width: 200px;
+
+    border-radius: 3px;
+    padding: 16px;
   }
 </style>
