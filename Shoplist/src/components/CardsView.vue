@@ -1,8 +1,7 @@
 <template>
     <div id="CardsView">
-        <div class="card-container" v-for="ref in shoplistRefs" :key="ref">
-            <ShoplistCard v-bind:dataset="ref"></ShoplistCard>
-        </div>
+    
+        <ShoplistCard v-for="ref in shoplistRefs" :key="ref" v-bind:dataset="ref"></ShoplistCard>
         
     </div>
 </template>
@@ -12,12 +11,13 @@ import ShoplistCard from './ShoplistCard.vue'
 
 var Vue = require('vue')
 var firebase = require('firebase')
+
 export default {
     name: 'CardsView',
     data: function() {
         return {
             user: {},
-            shoplistRefs: []
+            shoplistRefs: {}
         }
     },
     components: {
@@ -28,16 +28,18 @@ export default {
 firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
             // User is signed in.
-            console.log(user.displayName + " " + user.email)
             this.user = user
+
+            var listRef = firebase.database().ref('users/' + this.user.uid + '/shoplists')
+            var self = this
+            listRef.on('value', function(snapshot) {
+                self.set(self.shoplistRefs, snapshot.val())
+                //self.shoplistRefs = snapshot.val()
+                console.log(snapshot.val())
+            });
           }
 })
-var listRef = firebase.database().ref('users/' + this.user + '/shoplists')
-listRef.on('value', function(snapshot) {
-  //updateStarCount(postElement, snapshot.val());
-  this.shoplistRefs = snapshot.val
-  console.log('Set value for user: ' + snapshot.val)
-});
+
 
 </script>
 

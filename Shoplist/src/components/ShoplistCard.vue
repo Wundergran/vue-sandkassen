@@ -1,7 +1,7 @@
 <template>
   <div id="shoplist-card">
     <div class="card md-elevation-5">
-      <h3>{{listData.title}}</h3>
+      <h3>{{listData}}</h3>
     </div>
   </div>
 </template>
