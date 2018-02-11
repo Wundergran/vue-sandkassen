@@ -1,6 +1,6 @@
 <template>
     <div id="CardsView">
-        <div v-for="ref in refList" :key="ref">
+        <div v-for="(ref, i) in refList" :key="i">
             <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
         </div>
     </div>
@@ -8,26 +8,29 @@
 
 <script>
     import ShoplistCard from './ShoplistCard.vue'
-    import { data } from '../firebase.js'
-
-    var Vue = require('vue')
+    import Vue from 'vue'
+    import { userdb } from '../firebase.js'
 
     export default {
         name: 'CardsView',
         data: function() {
             return {
                 user: {},
-                shoplistRefs: {}
+                shoplistRefs: null
             }
         },
         firebase: {
-            shoplistRefs: data.listRef
+            shoplistRefs: userdb
         },
         computed: {
             refList: function(){
-                console.log(this.shoplistRefs)
-                console.log(data.listRef)
-                return Object.keys(this.shoplistRefs)
+                if(this.shoplistRefs){
+                    console.log(this.shoplistRefs)
+                    console.log(userdb)
+                    return this.shoplistRefs
+                }else{
+                    return null
+                }
             }
         },
         components: {

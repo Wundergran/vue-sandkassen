@@ -7,17 +7,25 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import {shoplistdb} from '../firebase.js'
 export default {
   name: 'ShoplistCard',
   props: {
-    dataset: {
-      type: String
-    }
+    dataset: {}
   },
   data: function() {
     return {
-      listData: this.dataset
+      dbData: {}
     }
+  },
+  computed: {
+    listData: function() {
+      return this.dbData
+    }
+  },
+  firebase: {
+    dbData: shoplistdb
   }
 }
 </script>

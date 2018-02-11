@@ -13,16 +13,19 @@ var config = {
     messagingSenderId: '275802183767'
 }
 
-var data = {}
+var usr = {}
+var userdb = {}
+var shoplistdb = {}
 
 var firebase = Firebase.initializeApp(config);
 var database = firebase.database()
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-        data.user = user
-        data.listRef = database.ref(`users/${user.uid}/shoplists`)
+        usr = user
+        userdb = database.ref(`users/${user.uid}/shoplists`)
+        shoplistdb = database.ref('shoplists')
         console.log(user.uid)
     }
 })
 
-export { data }
+export { usr, userdb, shoplistdb }
