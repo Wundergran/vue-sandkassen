@@ -8,41 +8,8 @@
 <script>
 import 'vue-material/dist/vue-material.min.css'
 
-// Initialize Firebase
-var firebase = require('firebase');
-var config = {
-  apiKey: 'AIzaSyBwPIvauRFSUOCdPqYfk-MXnItL_dRjBgY',
-  authDomain: 'shoplist-2f2a0.firebaseapp.com',
-  databaseURL: 'https://shoplist-2f2a0.firebaseio.com',
-  projectId: 'shoplist-2f2a0',
-  storageBucket: 'shoplist-2f2a0.appspot.com',
-  messagingSenderId: '275802183767'
-}
-
-
-firebase.initializeApp(config)
-var database = firebase.database()
-var userdbRef
-firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            console.log(user.displayName + " " + user.email)
-            this.user = user
-            userdbRef = database.ref('users/' + user.uid + '/shoplists')
-          }
-})
-
-
 export default {
-  name: 'App',
-  data: function() {
-      return {
-        user: {}
-      }
-  },
-  firebase: {
-    listsRef: userdbRef
-  }
+  name: 'App'
 }
 </script>
 

@@ -11,7 +11,7 @@ export default {
   name: 'ShoplistCard',
   props: {
     dataset: {
-      type: Object
+      type: String
     }
   },
   data: function() {

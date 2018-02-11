@@ -1,45 +1,39 @@
 <template>
     <div id="CardsView">
-    <div v-for="ref in shoplistRefs" :key="ref">
-        <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
-    </div>
-        
+        <div v-for="ref in refList" :key="ref">
+            <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
+        </div>
     </div>
 </template>
 
 <script>
-import ShoplistCard from './ShoplistCard.vue'
+    import ShoplistCard from './ShoplistCard.vue'
+    import { data } from '../firebase.js'
 
-var Vue = require('vue')
-var firebase = require('firebase')
+    var Vue = require('vue')
 
-export default {
-    name: 'CardsView',
-    data: function() {
-        return {
-            user: {},
-            shoplistRefs: []
-        }
-    },
-    created: function() {
-        /* firebase.auth().onAuthStateChanged(function(user) {
-            if (user) {
-                this.user = user
-                var listRef = firebase.database().ref('users/' + this.user.uid + '/shoplists')
-                listRef.on('value', function(snapshot) {
-                    var listArray = Object.keys(snapshot.val())
-                    this.shoplistRefs = listArray
-                    console.log(listArray)
-                })
+    export default {
+        name: 'CardsView',
+        data: function() {
+            return {
+                user: {},
+                shoplistRefs: {}
             }
-        }) */
-    },
-    components: {
-        ShoplistCard
+        },
+        firebase: {
+            shoplistRefs: data.listRef
+        },
+        computed: {
+            refList: function(){
+                console.log(this.shoplistRefs)
+                console.log(data.listRef)
+                return Object.keys(this.shoplistRefs)
+            }
+        },
+        components: {
+            ShoplistCard
+        }
     }
-}
-
-
 </script>
 
 <style scoped>
