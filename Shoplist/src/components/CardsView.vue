@@ -20,36 +20,10 @@
             return {
                 user: {},
                 shoplistRefs: [],
-                userdbStr: 'shoplists',
-                userdbRef: {}
-            }
-        },
-        firebase: {
-            //shoplistRefs: this.userdbRef
-        },
-        computed: {
-            refList: function(){
-                if(this.shoplistRefs){
-                    var copy = this.shoplistRefs
-                    var keys = []
-                    for (var item in copy) {
-                        if(item !== undefined){
-                            keys.push(item['.key'])
-                            console.log(item)
-                        }
-                    }
-                    console.log('keys: ' + keys)
-                    return keys
-                }
             }
         },
         watch: {
-            shoplistRefs: function(val){
-                /* console.log('shoplistRefs changed')
-                console.log(val) */
-            },
             dataRefs: function() {
-                console.log('database changed: ' + this.dataRefs.userdbStr)
                 const str = this.dataRefs.userdbStr
                 if(str !== undefined){
                     this.userdbRef = database.ref(str)
