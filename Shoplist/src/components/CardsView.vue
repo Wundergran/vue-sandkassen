@@ -1,6 +1,6 @@
 <template>
     <div id="CardsView">
-        <div v-for="item in refList" :key="item">
+        <div v-for="item in shoplistRefs" :key="item['.key']">
             <ShoplistCard  v-bind:dataset="item"></ShoplistCard>
         </div>
     </div>
@@ -30,13 +30,15 @@
         computed: {
             refList: function(){
                 if(this.shoplistRefs){
-                    console.log(this.shoplistRefs)
+                    var copy = this.shoplistRefs
                     var keys = []
-                    for (let item in this.shoplistRefs) {
+                    for (var item in copy) {
                         if(item !== undefined){
                             keys.push(item['.key'])
+                            console.log(item)
                         }
                     }
+                    console.log('keys: ' + keys)
                     return keys
                 }
             }

@@ -13,7 +13,8 @@ const config = {
     messagingSenderId: '275802183767'
 }
 
+const listRef = 'shoplists'
 const firebase = Firebase.initializeApp(config)
 var database = firebase.database()
 
-export { data, firebase, Firebase, config, database }
+export { data, firebase, Firebase, config, database, listRef }
