@@ -8,14 +8,6 @@
     import { Firebase } from '../firebase.js'
     var firebaseui = require('firebaseui');
 
-    export default {
-        name: 'login',
-        data: function() {
-            return{}
-        },
-        methods: {}
-    }
-
     // FirebaseUI config.
     var uiConfig = {
         signInSuccessUrl: '/',
@@ -25,12 +17,20 @@
         ],
         // Terms of service url.
         tosUrl: '<your-tos-url>'
-    };
+    }
 
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(Firebase.auth());
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig);
+    export default {
+        name: 'login',
+        data: function() {
+            return{}
+        },
+        created: function(){
+            // Initialize the FirebaseUI Widget using Firebase.
+            var ui = new firebaseui.auth.AuthUI(Firebase.auth());
+            // The start method will wait until the DOM is loaded.
+            ui.start('#firebaseui-auth-container', uiConfig);
+        }
+    }
 </script>
 
 <style scoped>
