@@ -30,10 +30,7 @@ Vue.use(VueMaterial)
 export default {
   name: 'App',
   components: {
-    CardsView,
-    MdApp,
-    MdToolbar,
-    MdAppContent
+    CardsView
   },
   data: function() {
     return{
