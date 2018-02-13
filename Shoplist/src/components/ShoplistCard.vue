@@ -8,7 +8,7 @@
 
 <script>
 import Vue from 'vue'
-import {shoplistdb} from '../firebase.js'
+
 export default {
   name: 'ShoplistCard',
   props: {
@@ -21,12 +21,9 @@ export default {
   },
   computed: {
     listData: function() {
-      return this.dbData
+      return 'Testing...'
     }
   },
-  firebase: {
-    dbData: shoplistdb
-  }
 }
 </script>
 
