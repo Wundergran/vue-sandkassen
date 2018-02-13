@@ -1,7 +1,7 @@
 <template>
     <div id="CardsView">
-        <div v-bind:v-for="ref in shoplistRefs">
-            <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
+        <div v-for="item in refList" :key="item">
+            <ShoplistCard  v-bind:dataset="item"></ShoplistCard>
         </div>
     </div>
 </template>
@@ -19,52 +19,40 @@
         data: function() {
             return {
                 user: {},
-                shoplistRefs: {},
+                shoplistRefs: [],
+                userdbStr: 'shoplists',
+                userdbRef: {}
             }
         },
         firebase: {
-            shoplistRefs: database.ref(this.userdbRef)
+            //shoplistRefs: this.userdbRef
         },
         computed: {
             refList: function(){
                 if(this.shoplistRefs){
+                    console.log(this.shoplistRefs)
                     var keys = []
-                    for (val in this.shoplistRefs){
-                        keys.push(val.key)
+                    for (let item in this.shoplistRefs) {
+                        if(item !== undefined){
+                            keys.push(item['.key'])
+                        }
                     }
                     return keys
-                }
-            },
-            userdbRef: function() {
-                console.log(this.dataRefs.userdbStr)
-                if(this.dataRefs.userdbStr !== undefined){
-                    return this.dataRefs.userdbStr
-                }else{
-                    return ''
                 }
             }
         },
         watch: {
-            dataRefs: {
-                deep: true,
-                handler: function(newdb, olddb) {
-                    console.log('database changed')
-                    if(olddb.userdbStr){
-                        
-                    }
-                    
-                    if(newdb.userdbStr){
-                        /* database.ref(newdb.userdbStr).on('value', function(snapshot){
-                            setShoplistRefs(snapshot.val())
-                            console.log('data got')
-                        }) */
-                        //this.userdbRef = database.ref(newdb.userdbStr)
-                    }
-                }
-            },
             shoplistRefs: function(val){
-                console.log('shoplistRefs changed')
-                console.log(val)
+                /* console.log('shoplistRefs changed')
+                console.log(val) */
+            },
+            dataRefs: function() {
+                console.log('database changed: ' + this.dataRefs.userdbStr)
+                const str = this.dataRefs.userdbStr
+                if(str !== undefined){
+                    this.userdbRef = database.ref(str)
+                    this.$bindAsArray('shoplistRefs', database.ref(str))
+                }
             }
         },
         components: {

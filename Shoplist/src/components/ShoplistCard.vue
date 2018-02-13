@@ -11,9 +11,7 @@ import Vue from 'vue'
 
 export default {
   name: 'ShoplistCard',
-  props: {
-    dataset: {}
-  },
+  props: ['dataset'],
   data: function() {
     return {
       dbData: {}
@@ -21,7 +19,8 @@ export default {
   },
   computed: {
     listData: function() {
-      return 'Testing...'
+      console.log(this.dataset)
+      return this.dataset
     }
   },
 }
