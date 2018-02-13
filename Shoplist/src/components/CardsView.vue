@@ -1,6 +1,6 @@
 <template>
     <div id="CardsView">
-        <div v-for="(ref, i) in refList" :key="i">
+        <div v-bind:v-for="ref in shoplistRefs">
             <ShoplistCard  v-bind:dataset="ref"></ShoplistCard>
         </div>
     </div>
@@ -29,14 +29,14 @@
             refList: function(){
                 if(this.shoplistRefs){
                     var keys = []
-                    for (ref in this.shoplistRefs){
-                        keys.push(ref.key)
+                    for (val in this.shoplistRefs){
+                        keys.push(val.key)
                     }
-                    console.log(keys)
                     return keys
                 }
             },
             userdbRef: function() {
+                console.log(this.dataRefs.userdbStr)
                 if(this.dataRefs.userdbStr !== undefined){
                     return this.dataRefs.userdbStr
                 }else{
@@ -64,6 +64,7 @@
             },
             shoplistRefs: function(val){
                 console.log('shoplistRefs changed')
+                console.log(val)
             }
         },
         components: {
