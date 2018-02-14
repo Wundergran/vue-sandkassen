@@ -1,22 +1,28 @@
 <template>
-  <div id="listItem">
-    <div class="text">{{item.name}}</div>
-    <div class="text">{{item.amount}}</div>
-  </div>
+    <div class="listItem">
+        <div class="md-subheading name">{{item.name}}</div>
+        <div class="md-subheading amount">{{item.amount}}</div>
+    </div>
 </template>
 
 <script>
 export default {
     name: 'shoplist-item',
     props: ['item', 'edit'],
-    created: function() {
-        console.log('item created, ' + this.item.name + this.item.amount)
-    }
 }
 </script>
 
 <style>
-    .listItem{
+    .listItem {
+        display: flex;
         flex-direction: row;
+    }
+    .name {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+    }
+    .amount {
+        justify-content: flex-end;
     }
 </style>
