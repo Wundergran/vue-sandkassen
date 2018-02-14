@@ -1,16 +1,15 @@
 <template>
   <div id="app" class="page-container">
-    <md-app md-waterfall md-mode="overlap">
+    <md-app md-waterfall md-mode="reveal">
       <md-app-toolbar class="md-primary md-large">
         <div class="md-toolbar-row">
           <span class="md-title">My Title</span>
         </div>
       </md-app-toolbar>
       
-      <md-app-content>
+      <md-app-content class="content">
         <img src="./assets/logo.png">
-        <router-view/>
-        <CardsView v-bind:dataRefs="db"></CardsView>
+        <CardsView class="cards-container" v-bind:dataRefs="db"></CardsView>
       </md-app-content>
     </md-app>
   </div>
@@ -60,14 +59,16 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
   }
   .md-app {
-    max-height: 400px;
     border: 1px solid rgba(#000, .12);
   }
-  .md-drawer {
-    width: 230px;
-    max-width: calc(100vw - 125px);
-  }
+</style>
+
+<style lang="sass" scoped>
+@import "~vue-material/dist/theme/engine"; 
+
+@include md-register-theme("default", (primary: md-get-palette-color(teal, 700), accent: md-get-palette-color(pink, 500)));
+
+@import "~vue-material/dist/theme/all";
 </style>

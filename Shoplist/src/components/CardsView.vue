@@ -1,7 +1,7 @@
 <template>
     <div id="CardsView">
-        <div v-for="item in shoplistRefs" :key="item['.key']">
-            <ShoplistCard  v-bind:dataset="item"></ShoplistCard>
+        <div class="cards-container" v-for="item in shoplistRefs" :key="item['.key']">
+            <ShoplistCard class="card" v-bind:dataset="item"></ShoplistCard>
         </div>
     </div>
 </template>
@@ -38,5 +38,11 @@
 </script>
 
 <style scoped>
-
+    .cards-container{
+        flex-direction: row
+    }
+    .card{
+        flex: auto;
+        max-width: 500px;
+    }
 </style>
