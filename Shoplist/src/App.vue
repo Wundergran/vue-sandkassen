@@ -66,7 +66,9 @@ export default {
     background: grey;
   }
   .content {
-    background-color: #2c3e50
+    background-color: #2c3e50;
+    max-width: 1000px;
+    margin: auto;
   }
   .toolbar-span{
     width: 100%
