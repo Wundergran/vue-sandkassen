@@ -44,7 +44,5 @@
     flex-direction: column;
     border-radius: 3px;
     padding: 16px;
-
-    background: white;
   }
 </style>

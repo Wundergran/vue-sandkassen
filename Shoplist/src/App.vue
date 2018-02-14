@@ -8,7 +8,6 @@
       </md-app-toolbar>
       
       <md-app-content class="content">
-        <img src="./assets/logo.png">
         <CardsView v-bind:dataRefs="db"></CardsView>
       </md-app-content>
     </md-app>

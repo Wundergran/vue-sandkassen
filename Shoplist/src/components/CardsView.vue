@@ -39,13 +39,12 @@
 
 <style scoped>
     .cards-container{
-        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
     .card{
         display: flex;
-        max-width: 1000px;
+        max-width: 500px;
         min-width: 300px;
     }
 </style>
