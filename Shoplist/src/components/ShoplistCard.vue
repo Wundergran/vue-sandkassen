@@ -3,7 +3,7 @@
     <div class="card md-elevation-5">
       <h2 class="md-headline title">{{listData.title}}</h2>
       <div v-for="item in listData.items" :key="item.name">
-        <shoplist-item v-bind:item="item" v-bind:edit="edit"></shoplist-item>
+        <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
       </div>
     </div>
   </div>
@@ -16,9 +16,9 @@
 
   export default {
     name: 'ShoplistCard',
-    components: [
+    components: {
       ShoplistItem
-    ],
+    },
     props: ['dataset'],
     data: function() {
       return {

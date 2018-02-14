@@ -1,9 +1,7 @@
 <template>
   <div id="listItem">
-      <div v-if="edit">
-          <div class="text">{{item.name}}</div>
-          <div class="text">{{item.amount}}</div>
-      </div>
+    <div class="text">{{item.name}}</div>
+    <div class="text">{{item.amount}}</div>
   </div>
 </template>
 
@@ -11,12 +9,14 @@
 export default {
     name: 'shoplist-item',
     props: ['item', 'edit'],
+    created: function() {
+        console.log('item created, ' + this.item.name + this.item.amount)
+    }
 }
 </script>
 
 <style>
     .listItem{
-        display: flex;
         flex-direction: row;
     }
 </style>

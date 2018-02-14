@@ -13,7 +13,7 @@
       </md-app-content>
     </md-app>
     
-    <md-snackbar :md-position="left" :md-duration="3000" :md-active.sync="showSnackbar" md-persistent>
+    <md-snackbar :md-position="snackConf.pos" :md-duration="snackConf.dur" :md-active.sync="snackConf.show" md-persistent>
         <span >Welcome, {{user.displayName}}</span>
     </md-snackbar>
   </div>
@@ -39,7 +39,11 @@ export default {
     return{
       user: {},
       db: {},
-      showSnackbar: false
+      snackConf: {
+        show: false,
+        pos: "left",
+        dur: 3000
+      }
     }
   },
   created: function() {
@@ -50,7 +54,7 @@ export default {
             db.userdbStr = (`users/${user.uid}/shoplists`)
             db.shoplistdbStr = ('shoplists')
             this.db = db
-            this.showSnackbar = true
+            this.snackConf.show = true
         }
     })    
   }
