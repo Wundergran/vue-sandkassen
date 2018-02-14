@@ -1,7 +1,7 @@
 <template>
   <div id="shoplist-card">
     <div class="card md-elevation-5">
-      <h2 class="title">{{listData.title}}</h2>
+      <h2 class="md-title title">{{listData.title}}</h2>
       <div v-for="item in listData.items" :key="item.name">
         <p>{{item.name}}</p>
       </div>
@@ -35,7 +35,12 @@
 
 <style scoped>
   .card{
+    display: flex;
+    flex-direction: column;
     border-radius: 3px;
     padding: 16px;
+  }
+  .title{
+    
   }
 </style>

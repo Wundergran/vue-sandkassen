@@ -9,9 +9,13 @@
       
       <md-app-content class="content">
         <img src="./assets/logo.png">
-        <CardsView class="cards-container" v-bind:dataRefs="db"></CardsView>
+        <CardsView v-bind:dataRefs="db"></CardsView>
       </md-app-content>
     </md-app>
+    
+    <md-snackbar :md-position="left" :md-duration="3000" :md-active.sync="showSnackbar" md-persistent>
+        <span>Welcome, {{user.displayName}}</span>
+    </md-snackbar>
   </div>
 </template>
 
@@ -35,6 +39,7 @@ export default {
     return{
       user: {},
       db: {},
+      showSnackbar: false
     }
   },
   created: function() {
@@ -45,7 +50,7 @@ export default {
             db.userdbStr = (`users/${user.uid}/shoplists`)
             db.shoplistdbStr = ('shoplists')
             this.db = db
-            console.log('User: ' + user.displayName)
+            this.showSnackbar = true
         }
     })    
   }
@@ -54,10 +59,9 @@ export default {
 
 <style>
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
   }
   .md-app {
@@ -67,8 +71,8 @@ export default {
 
 <style lang="sass" scoped>
 @import "~vue-material/dist/theme/engine"; 
-
 @include md-register-theme("default", (primary: md-get-palette-color(teal, 700), accent: md-get-palette-color(pink, 500)));
-
 @import "~vue-material/dist/theme/all";
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 </style>
