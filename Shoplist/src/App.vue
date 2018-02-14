@@ -3,7 +3,7 @@
     <md-app md-waterfall md-mode="reveal">
       <md-app-toolbar class="md-primary md-large">
         <div class="md-toolbar-row">
-          <span class="md-title">My Title</span>
+          <span class="md-title">Shoplist</span>
         </div>
       </md-app-toolbar>
       
@@ -14,7 +14,7 @@
     </md-app>
     
     <md-snackbar :md-position="left" :md-duration="3000" :md-active.sync="showSnackbar" md-persistent>
-        <span>Welcome, {{user.displayName}}</span>
+        <span >Welcome, {{user.displayName}}</span>
     </md-snackbar>
   </div>
 </template>
@@ -63,9 +63,13 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
+    background: grey;
   }
-  .md-app {
-    border: 1px solid rgba(#000, .12);
+  .content {
+    background-color: #2c3e50
+  }
+  .toolbar-span{
+    width: 100%
   }
 </style>
 
