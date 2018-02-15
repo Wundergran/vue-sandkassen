@@ -81,7 +81,8 @@ export default {
     -moz-osx-font-smoothing: grayscale;
   }
   .content {
-    max-width: 1000px;
+    display: flex;
+    max-width: 1200px;
     margin: auto;
   }
   .toolbar-span{

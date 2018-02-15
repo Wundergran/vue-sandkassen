@@ -37,7 +37,11 @@
 </script>
 
 <style scoped>
-  .card{
+  .title {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .card {
     display: flex;
     flex-direction: column;
     border-radius: 2px;
