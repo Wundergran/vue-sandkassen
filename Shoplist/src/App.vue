@@ -1,8 +1,11 @@
 <template>
   <div id="app" class="page-container">
-    <v-toolbar dark color="primary">
+    <v-toolbar color="primary">
+      <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Title</v-toolbar-title>
+      <v-spacer></v-spacer>
     </v-toolbar>
+
       <div class="content">
         <CardsView v-bind:dataRefs="db"></CardsView>
       </div>
@@ -10,6 +13,11 @@
    <!--  <md-snackbar :md-position="snackConf.pos" :md-duration="snackConf.dur" :md-active.sync="snackConf.show" md-persistent>
         <span >Greetings, {{user.displayName}}</span>
     </md-snackbar> -->
+    <v-snackbar
+      :timeout="snackConf.dur"
+      :left="true"
+      v-model="snackConf.show"
+    >Greetings, {{user.displayName}}</v-snackbar>
   </div>
 </template>
 
@@ -22,7 +30,17 @@ import CardsView from './components/CardsView.vue'
 
 import { firebase, database } from './firebase.js'
 
-Vue.use(Vuetify)
+Vue.use(Vuetify, {
+  theme: {
+    primary: "#00897B",
+    secondary: "#00796B",
+    accent: "#1DE9B6",
+    error: "#f44336",
+    warning: "#ffeb3b",
+    info: "#2196f3",
+    success: "#4caf50"
+}
+})
 
 export default {
   name: 'App',
