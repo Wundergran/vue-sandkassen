@@ -42,5 +42,6 @@
     flex-direction: column;
     border-radius: 2px;
     padding: 0 16px;
+    background-color: white;
   }
 </style>

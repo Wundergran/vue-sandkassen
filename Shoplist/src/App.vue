@@ -1,23 +1,21 @@
 <template>
   <div id="app" class="page-container">
-    <v-toolbar color="primary">
-      <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Title</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
+    <v-app>
+      <v-toolbar color="primary">
+        <v-toolbar-title class="white--text">Shoplist</v-toolbar-title>
+        <v-spacer></v-spacer>
+      </v-toolbar>
 
-      <div class="content">
-        <CardsView v-bind:dataRefs="db"></CardsView>
-      </div>
-    
-   <!--  <md-snackbar :md-position="snackConf.pos" :md-duration="snackConf.dur" :md-active.sync="snackConf.show" md-persistent>
-        <span >Greetings, {{user.displayName}}</span>
-    </md-snackbar> -->
-    <v-snackbar
-      :timeout="snackConf.dur"
-      :left="true"
-      v-model="snackConf.show"
-    >Greetings, {{user.displayName}}</v-snackbar>
+        <div class="content">
+          <CardsView v-bind:dataRefs="db"></CardsView>
+        </div>
+
+      <v-snackbar
+        :timeout="snackConf.dur"
+        :left="true"
+        v-model="snackConf.show"
+      >Greetings, {{user.displayName}}</v-snackbar>
+    </v-app>
   </div>
 </template>
 
@@ -74,6 +72,9 @@ export default {
 </script>
 
 <style>
+  :root {
+    --background-color: #ECEFF1;
+  }
   #app {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
