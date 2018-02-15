@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="page-container">
     <v-app>
-      <Header></Header>
+      <Header v-bind:user="user"></Header>
 
       <div class="content">
         <CardsView v-bind:dataRefs="db"></CardsView>
@@ -10,8 +10,10 @@
       <v-snackbar
         :timeout="snackConf.dur"
         :left="true"
-        v-model="snackConf.show"
-      >Greetings, {{user.displayName}}</v-snackbar>
+        v-model="snackConf.show">
+          
+          Greetings, {{user.displayName}}
+      </v-snackbar>
     </v-app>
   </div>
 </template>
@@ -65,6 +67,7 @@ export default {
             db.shoplistdbStr = ('shoplists')
             this.db = db
             this.snackConf.show = true
+            console.log(user)
         }
     })    
   }
