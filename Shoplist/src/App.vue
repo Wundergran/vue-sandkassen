@@ -1,14 +1,11 @@
 <template>
   <div id="app" class="page-container">
     <v-app>
-      <v-toolbar color="primary">
-        <v-toolbar-title class="white--text">Shoplist</v-toolbar-title>
-        <v-spacer></v-spacer>
-      </v-toolbar>
+      <Header></Header>
 
-        <div class="content">
-          <CardsView v-bind:dataRefs="db"></CardsView>
-        </div>
+      <div class="content">
+        <CardsView v-bind:dataRefs="db"></CardsView>
+      </div>
 
       <v-snackbar
         :timeout="snackConf.dur"
@@ -24,6 +21,8 @@ import 'vue-material/dist/vue-material.min.css'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+
+import Header from './components/Header.vue'
 import CardsView from './components/CardsView.vue'
 
 import { firebase, database } from './firebase.js'
@@ -43,7 +42,8 @@ Vue.use(Vuetify, {
 export default {
   name: 'App',
   components: {
-    CardsView
+    CardsView,
+    Header
   },
   data: function() {
     return{
