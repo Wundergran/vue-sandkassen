@@ -46,5 +46,6 @@
         display: flex;
         max-width: 500px;
         min-width: 300px;
+        margin: 16px;
     }
 </style>

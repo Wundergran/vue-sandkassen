@@ -1,7 +1,7 @@
 <template>
     <div class="listItem">
-        <div class="md-subheading name">{{item.name}}</div>
-        <div class="md-subheading amount">{{item.amount}}</div>
+        <div class="name">{{item.name}}</div>
+        <div class="amount">{{item.amount}}</div>
     </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
     .listItem {
         display: flex;
         flex-direction: row;
+        margin-bottom: 16px;
     }
     .name {
         display: flex;

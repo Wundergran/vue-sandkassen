@@ -6,6 +6,8 @@ import router from './router'
 import VueFire from 'vuefire'
 import firebase from './firebase.js'
 
+import 'vuetify/dist/vuetify.min.css'
+
 Vue.use(VueFire)
 
 Vue.config.productionTip = false

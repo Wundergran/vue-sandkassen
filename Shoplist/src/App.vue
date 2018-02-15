@@ -1,20 +1,15 @@
 <template>
   <div id="app" class="page-container">
-    <md-app md-waterfall md-mode="reveal">
-      <md-app-toolbar class="md-primary md-large">
-        <div class="md-toolbar-row">
-          <span class="md-title">Shoplist</span>
-        </div>
-      </md-app-toolbar>
-      
-      <md-app-content class="content">
+    <v-toolbar dark color="primary">
+      <v-toolbar-title class="white--text">Title</v-toolbar-title>
+    </v-toolbar>
+      <div class="content">
         <CardsView v-bind:dataRefs="db"></CardsView>
-      </md-app-content>
-    </md-app>
+      </div>
     
-    <md-snackbar :md-position="snackConf.pos" :md-duration="snackConf.dur" :md-active.sync="snackConf.show" md-persistent>
-        <span >Welcome, {{user.displayName}}</span>
-    </md-snackbar>
+   <!--  <md-snackbar :md-position="snackConf.pos" :md-duration="snackConf.dur" :md-active.sync="snackConf.show" md-persistent>
+        <span >Greetings, {{user.displayName}}</span>
+    </md-snackbar> -->
   </div>
 </template>
 
@@ -22,12 +17,12 @@
 import 'vue-material/dist/vue-material.min.css'
 
 import Vue from 'vue'
-import VueMaterial from 'vue-material'
+import Vuetify from 'vuetify'
 import CardsView from './components/CardsView.vue'
 
 import { firebase, database } from './firebase.js'
 
-Vue.use(VueMaterial)
+Vue.use(Vuetify)
 
 export default {
   name: 'App',
@@ -65,11 +60,8 @@ export default {
     font-family: 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    background: grey;
   }
   .content {
-    background-color: #2c3e50;
     max-width: 1000px;
     margin: auto;
   }
@@ -79,9 +71,5 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-@import "~vue-material/dist/theme/engine"; 
-@include md-register-theme("default", (primary: md-get-palette-color(teal, 700), accent: md-get-palette-color(pink, 500)));
-@import "~vue-material/dist/theme/all";
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 </style>
