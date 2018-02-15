@@ -45,7 +45,7 @@
     .card{
         display: flex;
         max-width: 500px;
-        min-width: 300px;
+        min-width: 200px;
         margin: 16px;
     }
 </style>

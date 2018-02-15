@@ -16,7 +16,6 @@ export default {
     .listItem {
         display: flex;
         flex-direction: row;
-        margin-bottom: 16px;
     }
     .name {
         display: flex;

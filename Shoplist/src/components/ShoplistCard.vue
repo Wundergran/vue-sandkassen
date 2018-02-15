@@ -1,8 +1,10 @@
 <template>
   <div class="card">
     <h2 class="title">{{listData.title}}</h2>
-    <div v-for="item in listData.items" :key="item.name">
-      <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
+    <div class="items">
+      <div v-for="item in listData.items" :key="item.name">
+        <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
+      </div>
     </div>
   </div>
 </template>
@@ -47,5 +49,8 @@
     border-radius: 2px;
     padding: 0 16px;
     background-color: white;
+  }
+  .items{
+    margin-bottom: 16px;
   }
 </style>
