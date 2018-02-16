@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" elevation-2>
     <h2 class="title">{{listData.title}}</h2>
     <div class="items">
       <div v-for="item in listData.items" :key="item.name">

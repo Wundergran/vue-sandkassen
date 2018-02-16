@@ -12,7 +12,7 @@
         :left="true"
         v-model="snackConf.show">
           
-          Greetings, {{user.displayName}}
+          Greets to you, {{user.displayName}}
       </v-snackbar>
     </v-app>
   </div>
@@ -94,5 +94,5 @@ export default {
 </style>
 
 <style lang="sass" scoped>
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 </style>
