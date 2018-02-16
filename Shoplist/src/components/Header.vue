@@ -1,6 +1,6 @@
 <template>
-    <v-toolbar color="primary">
-        <v-toolbar-title class="white--text">Shoplist</v-toolbar-title>
+    <v-toolbar color="primary" prominent="true">
+        <v-toolbar-title class="white--text title-text">Shoplist</v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
             <div class="user-container" v-if="loggedIn" v-on:click="logout">
@@ -54,5 +54,8 @@ export default {
         object-fit: contain;
         width: 24px;
         margin: 8px;
+    }
+    .title-text{
+        font-weight: 400;
     }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <div class="card" elevation-2>
     <div class="top">
-      <h2 class="title">{{listData.title}}</h2>
+      <div class="title">{{listData.title}}</div>
       <span class="flex"></span>
-      <v-btn flat icon>
-        <v-icon>edit</v-icon>
+      <v-btn class="top-icon" flat icon>
+        <v-icon class="top-icon" >edit</v-icon>
       </v-btn>
-      <v-btn flat icon>
-        <v-icon>more_vert</v-icon>
+      <v-btn class="top-icon" flat icon>
+        <v-icon class="top-icon" >more_vert</v-icon>
       </v-btn>
     </div>
     
@@ -52,7 +52,7 @@
   .card {
     flex-direction: column;
     border-radius: 2px;
-    padding: 16px;
+    padding: 8px 16px 16px 16px;
     background-color: white;
   }
   .top {
@@ -63,6 +63,12 @@
   .title {
     margin-top: 8px;
     margin-bottom: 8px;
+  }
+  .top-icon {
+    height: 36px;
+    width: 36px;
+    margin: 0;
+    padding: 0;
   }
   .items{
     margin-bottom: 16px;
