@@ -1,9 +1,10 @@
 <template>
   <div id="app" class="page-container">
     <v-app>
-      <Header v-bind:user="user"></Header>
+      <Header v-on:login="logIn" v-bind:user="user"></Header>
 
       <div class="content">
+        <LoginDialog v-bind:show="loginDia.show"></LoginDialog>
         <CardsView v-bind:dataRefs="db"></CardsView>
       </div>
 
@@ -26,6 +27,7 @@ import Vuetify from 'vuetify'
 
 import Header from './components/Header.vue'
 import CardsView from './components/CardsView.vue'
+import LoginDialog from './components/LoginDialog.vue'
 
 import { firebase, database } from './firebase.js'
 
@@ -45,7 +47,8 @@ export default {
   name: 'App',
   components: {
     CardsView,
-    Header
+    Header,
+    LoginDialog
   },
   data: function() {
     return{
@@ -55,7 +58,15 @@ export default {
         show: false,
         pos: "left",
         dur: 3000
+      },
+      loginDia: {
+        show: false
       }
+    }
+  },
+  methods: {
+    logIn: function() {
+      this.loginDia.show = true
     }
   },
   created: function() {

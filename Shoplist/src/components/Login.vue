@@ -1,7 +1,5 @@
 <template>
-  <div id="firebaseui-auth-container" class="login">
-      
-  </div>
+  <div id="firebaseui-auth-container" class="login"></div>
 </template>
 
 <script>
@@ -10,7 +8,6 @@
 
     // FirebaseUI config.
     var uiConfig = {
-        signInSuccessUrl: '/',
         signInOptions: [
             // Leave the lines as is for the providers you want to offer your users.
             Firebase.auth.GoogleAuthProvider.PROVIDER_ID

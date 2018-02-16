@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { firebase } from '../firebase.js'
+import { firebase, loginConfig } from '../firebase.js'
 export default {
     name: 'Header',
     props: [
@@ -32,7 +32,7 @@ export default {
             firebase.auth().signOut()
         },
         login: function() {
-            firebase.auth().signInWithPopup()
+            this.$emit('login')
         }
     }
 }
