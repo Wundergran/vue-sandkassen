@@ -47,6 +47,8 @@
         display: flex;
         max-width: 500px;
         min-width: 200px;
-        margin: 16px;
+        height: inherit;
+        max-height: 500px;
+        margin: 8px;
     }
 </style>
