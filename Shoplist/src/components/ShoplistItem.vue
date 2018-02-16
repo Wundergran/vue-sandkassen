@@ -1,6 +1,6 @@
 <template>
     <div class="listItem">
-        <div class="name">{{item.name}}</div>
+        <div class="name flex">{{item.name}}</div>
         <div class="amount">{{item.amount}}</div>
     </div>
 </template>
@@ -20,9 +20,8 @@ export default {
     .name {
         display: flex;
         justify-content: flex-start;
-        width: 100%;
     }
     .amount {
-        justify-content: flex-end;
+
     }
 </style>
