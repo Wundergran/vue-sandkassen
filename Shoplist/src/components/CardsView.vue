@@ -39,6 +39,7 @@
 
 <style scoped>
     .cards-container{
+        display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
