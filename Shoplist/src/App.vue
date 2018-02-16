@@ -40,7 +40,7 @@ Vue.use(Vuetify, {
     warning: "#ffeb3b",
     info: "#2196f3",
     success: "#4caf50"
-}
+  }
 })
 
 export default {
@@ -100,10 +100,6 @@ export default {
   }
   .toolbar-span{
     width: 100%
-  }
-  .login-dialog {
-    max-width: 500px;
-    width: 500px;
   }
 </style>
 

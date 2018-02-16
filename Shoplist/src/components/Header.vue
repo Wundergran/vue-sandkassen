@@ -30,6 +30,7 @@ export default {
     methods: {
         logout: function() {
             firebase.auth().signOut()
+            this.$emit('logout')
         },
         login: function() {
             this.$emit('login')
@@ -42,7 +43,6 @@ export default {
     .user-container{
         display: flex;
         flex-direction: row;
-        height: inherit;
         margin: auto;
     }
     .user-text{
