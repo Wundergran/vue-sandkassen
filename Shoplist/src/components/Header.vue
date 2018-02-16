@@ -8,7 +8,7 @@
                 <img class="profile-photo" v-bind:src="user.photoURL">
             </div>
             <div v-else>
-                <v-btn v-on:click="login">LOG IN</v-btn>
+                <v-btn v-on:click="login">LOGIN</v-btn>
             </div>
         </div>
         
@@ -51,8 +51,8 @@ export default {
         color: white;
     }
     .profile-photo{
-        object-fit: contain;
         width: 24px;
+        height: 24px;
         margin: 8px;
     }
     .title-text{

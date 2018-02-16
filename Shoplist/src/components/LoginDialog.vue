@@ -1,9 +1,8 @@
 <template>
-  <v-dialog class="login-dialog" v-model="show">
+  <v-dialog class="login-dialog" v-model="show" max-width="500px">
       <v-card>
           <v-card-title>Log in</v-card-title>
-          <v-card-text>Log in with Google auth</v-card-text>
-          <Login></Login>
+          <Login class="login-btn"></Login>
       </v-card>
   </v-dialog>
 </template>
@@ -23,5 +22,7 @@
 </script>
 
 <style scoped>
-
+    login-dialog {
+        max-width: 500px;
+    }
 </style>

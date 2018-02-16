@@ -1,5 +1,5 @@
 <template>
-  <div id="firebaseui-auth-container" class="login"></div>
+  <div id="firebaseui-auth-container"></div>
 </template>
 
 <script>
@@ -31,7 +31,5 @@
 </script>
 
 <style scoped>
-    .login {
-        height: 32px;
-    }
+
 </style>

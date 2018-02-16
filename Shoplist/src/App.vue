@@ -101,6 +101,10 @@ export default {
   .toolbar-span{
     width: 100%
   }
+  .login-dialog {
+    max-width: 500px;
+    width: 500px;
+  }
 </style>
 
 <style lang="sass" scoped>
