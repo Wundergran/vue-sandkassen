@@ -4,7 +4,7 @@
       <Header v-on:login="logIn" v-bind:user="user"></Header>
 
       <div class="content">
-        <LoginDialog v-bind:show="loginDia.show"></LoginDialog>
+        <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
         <CardsView v-bind:dataRefs="db"></CardsView>
       </div>
 

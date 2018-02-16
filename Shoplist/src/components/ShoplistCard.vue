@@ -1,6 +1,16 @@
 <template>
   <div class="card" elevation-2>
-    <h2 class="title">{{listData.title}}</h2>
+    <div class="top">
+      <h2 class="title">{{listData.title}}</h2>
+      <span class="flex"></span>
+      <v-btn flat icon>
+        <v-icon>edit</v-icon>
+      </v-btn>
+      <v-btn flat icon>
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+    </div>
+    
     <div class="items">
       <div v-for="item in listData.items" :key="item.name">
         <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
@@ -39,16 +49,20 @@
 </script>
 
 <style scoped>
+  .card {
+    flex-direction: column;
+    border-radius: 2px;
+    padding: 16px;
+    background-color: white;
+  }
+  .top {
+    display: flex;
+    flex-direction: row;
+    
+  }
   .title {
     margin-top: 8px;
     margin-bottom: 8px;
-  }
-  .card {
-    display: flex;
-    flex-direction: column;
-    border-radius: 2px;
-    padding: 0 16px;
-    background-color: white;
   }
   .items{
     margin-bottom: 16px;
