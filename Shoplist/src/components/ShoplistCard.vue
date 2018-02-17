@@ -1,5 +1,5 @@
 <template>
-  <div class="card" elevation-2>
+  <div class="card" elevation-5>
     <div class="top">
       <div class="title">{{listData.title}}</div>
       <span class="flex"></span>

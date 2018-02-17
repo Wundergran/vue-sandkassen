@@ -3,17 +3,23 @@
     <v-app>
       <Header v-on:login="logIn" v-bind:user="user"></Header>
 
-      <div class="content">
+      <v-layout class="content" justify-center>
+        <v-flex>
+          <CardsView v-bind:dataRefs="db"></CardsView>
+        </v-flex>
         <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
-        <CardsView v-bind:dataRefs="db"></CardsView>
-      </div>
+        <NewCardDialog></NewCardDialog>
+      </v-layout>
+
+      <v-btn fab v-on:click="showAdd" color="accent" right bottom fixed>
+        <v-icon>add</v-icon>
+      </v-btn>
+
 
       <v-snackbar
         :timeout="snackConf.dur"
         :left="true"
-        v-model="snackConf.show">
-          
-          Greets to you, {{user.displayName}}
+        v-model="snackConf.show">Greets to you, {{user.displayName}}
       </v-snackbar>
     </v-app>
   </div>
@@ -28,6 +34,7 @@ import Vuetify from 'vuetify'
 import Header from './components/Header.vue'
 import CardsView from './components/CardsView.vue'
 import LoginDialog from './components/LoginDialog.vue'
+import NewCardDialog from './components/NewCardDialog.vue'
 
 import { firebase, database } from './firebase.js'
 
@@ -48,7 +55,8 @@ export default {
   components: {
     CardsView,
     Header,
-    LoginDialog
+    LoginDialog,
+    NewCardDialog
   },
   data: function() {
     return{
@@ -60,6 +68,9 @@ export default {
         dur: 3000
       },
       loginDia: {
+        show: false
+      },
+      newDia: {
         show: false
       }
     }

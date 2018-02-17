@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar color="primary" prominent="true">
+    <v-toolbar color="primary" prominent>
         <v-toolbar-title class="white--text title-text">Shoplist</v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
