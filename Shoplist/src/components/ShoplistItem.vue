@@ -1,7 +1,13 @@
 <template>
     <div class="listItem">
-        <div class="name flex">{{item.name}}</div>
-        <div class="amount">{{item.amount}}</div>
+        <div v-if="edit">
+            <v-text-field class="name" v-model="item.name"></v-text-field>
+            <v-text-field class="amount" v-model="item.amount"></v-text-field>
+        </div>
+        <div v-else>
+            <div class="name flex">{{item.name}}</div>
+            <div class="amount">{{item.amount}}</div>
+        </div>
     </div>
 </template>
 

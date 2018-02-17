@@ -8,10 +8,12 @@
           <CardsView v-bind:dataRefs="db"></CardsView>
         </v-flex>
         <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
-        <NewCardDialog></NewCardDialog>
+        <v-dialog v-model="newDia.show" max-width="500px">
+          <NewCardDialog></NewCardDialog>
+        </v-dialog>
       </v-layout>
 
-      <v-btn fab v-on:click="showAdd" color="accent" right bottom fixed>
+      <v-btn fab @click.stop="newDia.show = true" color="accent" right bottom fixed>
         <v-icon>add</v-icon>
       </v-btn>
 
@@ -26,7 +28,6 @@
 </template>
 
 <script>
-import 'vue-material/dist/vue-material.min.css'
 
 import Vue from 'vue'
 import Vuetify from 'vuetify'
@@ -106,7 +107,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
   }
   .content {
-    max-width: 700px;
+    max-width: 900px;
     margin: auto;
   }
   .toolbar-span{
