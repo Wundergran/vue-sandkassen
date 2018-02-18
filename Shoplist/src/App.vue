@@ -9,7 +9,7 @@
         </v-flex>
         <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
         <v-dialog v-model="newDia.show" max-width="500px">
-          <NewCardDialog></NewCardDialog>
+          <NewCardDialog v-on:submitlist="addList($event.target.value)"></NewCardDialog>
         </v-dialog>
       </v-layout>
 
@@ -79,6 +79,13 @@ export default {
   methods: {
     logIn: function() {
       this.loginDia.show = true
+    },
+    addList: function(list) {
+      if(this.db !== {}){
+        var shoplistRef = this.database.ref(db.shoplistdbStr).push()
+        this.database.ref(shoplistRef).set(list)
+        this.database.ref(this.db.userdbStr + '/' + shoplistRef.key).set('true')
+      }
     }
   },
   created: function() {

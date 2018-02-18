@@ -1,15 +1,21 @@
 <template>
     <div id="container">
         <div class="header">
-            <v-text-field v-model="listData.title" hint="List title" single-line></v-text-field>
+            <div class="title">New list</div>
+            <span class="flex"></span>
+            <v-btn v-on:click="addItem" icon flat>
+                <v-icon>add</v-icon>
+            </v-btn>
         </div>
         <div class="items flex">
-            <div v-for="item in listData.items" :key="item.name">
-                <ShoplistItem v-bind:item="item" edit></ShoplistItem>
+            <v-text-field v-model="listData.title" label="List title" single-line></v-text-field>
+            <div class="items-container" v-for="item in listData.items" :key="item.id">
+                <v-text-field v-model="item.name" label="Item name"></v-text-field>
+                <v-text-field v-model="item.amount" label="Amount"></v-text-field>
             </div>
         </div>
-        <div class="buttons">
-
+        <div class="buttons flex">
+            <v-btn v-on:click="submitList" color="primary">DONE</v-btn>
         </div>
     </div>
 </template>
@@ -22,13 +28,32 @@
             return {
                 listData: {
                     title: '',
-                    items: [
-                        {
-                            name: ''
-                        }
-                    ],
+                    items: [],
                     completed: false,
                 }
+            }
+        },
+        created: function() {
+            this.addItem()
+        },
+        methods: {
+            addItem: function(){
+                var newItem = {
+                    name: '',
+                    amount: '',
+                    collected: false,
+                    id: this.getNextId()
+                }
+                this.listData.items.push(newItem)
+            },
+            getNextId: function(){
+                var id = this.listData.items.length
+                return id + 1
+            },
+            submitList: function(){
+                var newList = this.listData
+                this.$emit('submitlist', newList)
+                this.listData = {}
             }
         },
         components: {
@@ -43,5 +68,20 @@
         border-radius: 2px;
         padding: 8px 16px 16px 16px;
         background-color: white;
+    }
+    .header {
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        margin-top: 8px;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        align-content: flex-end;
+    }
+    .items-container {
+        display: flex;
+        flex-direction: row;
     }
 </style>
