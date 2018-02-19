@@ -3,10 +3,10 @@
         <v-toolbar-title class="white--text title-text">Shoplist</v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
-            <div class="user-container" v-if="loggedIn" v-on:click="logout">
+            <v-btn class="user-container" v-if="loggedIn" flat v-on:click="logout">
                 <div class="user-text subheading">{{user.displayName}}</div>
                 <img class="profile-photo" v-bind:src="user.photoURL">
-            </div>
+            </v-btn>
             <div v-else>
                 <v-btn v-on:click="login">LOGIN</v-btn>
             </div>
@@ -39,11 +39,6 @@ export default {
 </script>
 
 <style scoped>
-    .user-container{
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-    }
     .user-text{
         margin: auto;
 

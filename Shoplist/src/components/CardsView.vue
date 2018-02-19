@@ -1,7 +1,7 @@
 <template>
     <div id="CardsView" class="cards-container">
             <ShoplistCard v-for="item in shoplistRefs" :key="item['.key']"
-             class="card" v-bind:dataset="item"></ShoplistCard>
+             class="card flex" v-bind:dataset="item"></ShoplistCard>
     </div>
 </template>
 
@@ -41,10 +41,11 @@
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        margin: auto;
     }
     .card{
-        max-width: 500px;
-        min-width: 300px;
+        max-width: 400px;
+        min-width: 200px;
         max-height: 500px;
         margin: 4px;
     }

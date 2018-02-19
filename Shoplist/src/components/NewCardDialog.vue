@@ -47,6 +47,9 @@
                 this.listData.items.push(newItem)
             },
             getNextId: function(){
+                if(this.listData.items === undefined){
+                    return 0;
+                }
                 var id = this.listData.items.length
                 return id + 1
             },
@@ -86,6 +89,7 @@
     .items-container {
         display: flex;
         flex-direction: row;
+        padding-top: 0;
     }
     .name {
         display: flex;
