@@ -43,9 +43,9 @@ import { firebase, database } from './firebase.js'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: "#00897B",
-    secondary: "#00796B",
-    accent: "#1DE9B6",
+    primary: "#6A1B9A",
+    secondary: "#CE93D8",
+    accent: "#E040FB",
     error: "#f44336",
     warning: "#ffeb3b",
     info: "#2196f3",

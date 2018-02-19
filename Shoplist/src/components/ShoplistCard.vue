@@ -21,6 +21,10 @@
         <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
       </div>
     </div>
+    <v-card-actions class="buttons" v-if="edit">
+      <v-btn color="secondary" flat>Cancel</v-btn>
+      <v-btn v-on:click="updateList" class="action-primary" color="primary">Save</v-btn>
+    </v-card-actions>
   </v-card>
 </template>
 
@@ -45,6 +49,11 @@
       dataref: function() {
         var data = this.dataset
         return database.ref(listRef).child(data['.key'])
+      }
+    },
+    methods: {
+      updateList: function() {
+
       }
     },
     created: function() {
@@ -77,6 +86,9 @@
   }
   .items{
     margin-bottom: 16px;
+  }
+  .buttons {
+    justify-content: flex-end;
   }
   .card-subhead {
     display: flex;
