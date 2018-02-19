@@ -1,5 +1,5 @@
 <template>
-  <div class="card" elevation-5>
+  <v-card class="card" hover>
     <div class="top">
       <div class="title">{{listData.title}}</div>
       <span class="flex"></span>
@@ -21,7 +21,7 @@
         <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
       </div>
     </div>
-  </div>
+  </v-card>
 </template>
 
 <script>
