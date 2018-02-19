@@ -54,6 +54,7 @@
                 var newList = this.listData
                 this.$emit('submitlist', newList)
                 this.listData = {}
+                this.addItem()
             }
         },
         components: {
