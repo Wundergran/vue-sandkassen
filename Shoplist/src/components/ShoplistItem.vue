@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="listItem" v-if="edit">
-            <v-text-field class="name edit" v-model="item.name" label="Item name" single-line></v-text-field>
-            <v-text-field class="amount edit" v-model="item.amount" label="Amount" single-line></v-text-field>
+            <v-text-field class="edit-name" v-model="item.name" label="Item name" single-line></v-text-field>
+            <v-text-field class="edit-amount" v-model="item.amount" label="Amount" single-line></v-text-field>
         </div>
         <div class="listItem" v-else>
             <div class="name flex body-2">{{item.name}}</div>
@@ -23,9 +23,16 @@ export default {
         display: flex;
         flex-direction: row;
         margin: 4px 0;
+        max-height: 32px;
     }
     .name {
-        display: flex;
-        justify-content: flex-start;
+        margin-right: 8px;
+    }
+    .edit-amount {
+        max-width: 100px;
+        margin-left: 8px;
+    }
+    amount {
+        max-width: 100px;
     }
 </style>

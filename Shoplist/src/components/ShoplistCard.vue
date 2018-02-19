@@ -3,7 +3,7 @@
     <div class="top">
       <div class="title">{{listData.title}}</div>
       <span class="flex"></span>
-      <v-btn class="top-icon" flat icon>
+      <v-btn class="top-icon" v-on:click="edit = !edit" flat icon>
         <v-icon class="top-icon" >edit</v-icon>
       </v-btn>
       <v-btn class="top-icon" flat icon>
@@ -12,6 +12,11 @@
     </div>
     
     <div class="items">
+      <div class="card-subhead">
+        <div class="flex subheading">Item</div>
+        <div class="subheading">Amount</div>
+      </div>
+      <hr>
       <div v-for="item in listData.items" :key="item.name">
         <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
       </div>
@@ -72,5 +77,9 @@
   }
   .items{
     margin-bottom: 16px;
+  }
+  .card-subhead {
+    display: flex;
+    flex-direction: row;
   }
 </style>
