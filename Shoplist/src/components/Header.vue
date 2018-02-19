@@ -4,7 +4,7 @@
         <v-spacer></v-spacer>
         <div>
             <div class="user-container" v-if="loggedIn" v-on:click="logout">
-                <div class="user-text">{{user.displayName}}</div>
+                <div class="user-text subheading">{{user.displayName}}</div>
                 <img class="profile-photo" v-bind:src="user.photoURL">
             </div>
             <div v-else>
@@ -29,7 +29,6 @@ export default {
     },
     methods: {
         logout: function() {
-            firebase.auth().signOut()
             this.$emit('logout')
         },
         login: function() {

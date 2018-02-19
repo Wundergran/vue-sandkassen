@@ -5,8 +5,8 @@
             <v-text-field class="amount edit" v-model="item.amount" label="Amount" single-line></v-text-field>
         </div>
         <div class="listItem" v-else>
-            <div class="name flex">{{item.name}}</div>
-            <div class="amount">{{item.amount}}</div>
+            <div class="name flex body-2">{{item.name}}</div>
+            <div class="amount body-1">{{item.amount}}</div>
         </div>
     </div>
 </template>
@@ -22,6 +22,7 @@ export default {
     .listItem {
         display: flex;
         flex-direction: row;
+        margin: 4px 0;
     }
     .name {
         display: flex;

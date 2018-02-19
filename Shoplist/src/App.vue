@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="page-container">
     <v-app>
-      <Header v-on:login="logIn" v-bind:user="user"></Header>
+      <Header v-on:login="logIn" v-on:logout="logOut" v-bind:user="user"></Header>
 
       <v-layout class="content" justify-center>
         <v-flex>
@@ -79,6 +79,9 @@ export default {
   methods: {
     logIn: function() {
       this.loginDia.show = true
+    },
+    logOut: function() {
+      firebase.auth().signOut()
     },
     addList: function(event) {
       var list = {

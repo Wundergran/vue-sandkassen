@@ -10,8 +10,8 @@
         <div class="items flex">
             <v-text-field v-model="listData.title" label="List title" single-line></v-text-field>
             <div class="items-container" v-for="item in listData.items" :key="item.id">
-                <v-text-field v-model="item.name" label="Item name"></v-text-field>
-                <v-text-field v-model="item.amount" label="Amount"></v-text-field>
+                <v-text-field class="name" v-model="item.name" label="Item name"></v-text-field>
+                <v-text-field class="amount" @keydown.tab="addItem" v-model="item.amount" label="Amount"></v-text-field>
             </div>
         </div>
         <div class="buttons flex">
@@ -52,9 +52,11 @@
             },
             submitList: function(){
                 var newList = this.listData
-                this.$emit('submitlist', newList)
-                this.listData = {}
-                this.addItem()
+                if(newList.items.length > 0){
+                    this.$emit('submitlist', newList)
+                    this.listData = {}
+                    this.addItem()
+                }
             }
         },
         components: {
@@ -65,9 +67,8 @@
 
 <style scoped>
     #container {
-        min-height: 300px;
         border-radius: 2px;
-        padding: 8px 16px 16px 16px;
+        padding: 8px 16px 8px 16px;
         background-color: white;
     }
     .header {
@@ -79,10 +80,18 @@
     .buttons {
         display: flex;
         flex-direction: row;
-        align-content: flex-end;
+        justify-content: flex-end;
+        margin: 0;
     }
     .items-container {
         display: flex;
         flex-direction: row;
+    }
+    .name {
+        display: flex;
+        margin-right: 16px;
+    }
+    .amount {
+        max-width: 100px;
     }
 </style>
