@@ -3,17 +3,17 @@
     <v-app>
       <Header v-on:login="logIn" v-on:logout="logOut" v-bind:user="user"></Header>
 
-      <div class="content">
+      <v-content class="content">
         <v-layout justify-center>
-          <v-flex>
+          <v-container>
             <CardsView v-bind:dataRefs="db"></CardsView>
-          </v-flex>
+          </v-container>
           <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
           <v-dialog v-model="newDia.show" max-width="500px">
             <NewCardDialog v-on:submitlist="addList($event)"></NewCardDialog>
           </v-dialog>
         </v-layout>
-      </div>
+      </v-content>
 
       <v-btn fab @click.stop="newDia.show = true" color="accent" right bottom fixed>
         <v-icon>add</v-icon>
