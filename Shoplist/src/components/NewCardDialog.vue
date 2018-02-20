@@ -1,23 +1,23 @@
 <template>
-    <div id="container">
-        <div class="header">
-            <div class="title">New list</div>
-            <span class="flex"></span>
+    <v-card flat>
+        <v-toolbar color="white" flat card>
+            <v-toolbar-title class="title">New list</v-toolbar-title>
+            <v-spacer></v-spacer>
             <v-btn v-on:click="addItem" icon flat>
                 <v-icon>add</v-icon>
             </v-btn>
-        </div>
+        </v-toolbar>
         <div class="items flex">
             <v-text-field v-model="listData.title" label="List title" single-line></v-text-field>
             <div class="items-container" v-for="item in listData.items" :key="item.id">
-                <v-text-field class="name" v-model="item.name" label="Item name"></v-text-field>
-                <v-text-field class="amount" @keydown.tab="addItem" v-model="item.amount" label="Amount"></v-text-field>
+                <v-text-field class="name" v-model="item.name" label="Item name" single-line></v-text-field>
+                <v-text-field class="amount" @keydown.tab="addItem" v-model="item.amount" label="Amount" single-line></v-text-field>
             </div>
         </div>
         <div class="buttons flex">
             <v-btn v-on:click="submitList" color="primary">DONE</v-btn>
         </div>
-    </div>
+    </v-card>
 </template>
 
 <script>
@@ -71,8 +71,10 @@
 <style scoped>
     #container {
         border-radius: 2px;
-        padding: 8px 16px 8px 16px;
         background-color: white;
+    }
+    .items {
+        padding: 8px 16px 8px 16px;
     }
     .header {
         display: flex;

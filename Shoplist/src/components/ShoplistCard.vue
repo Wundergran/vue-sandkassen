@@ -6,9 +6,16 @@
       <v-btn class="top-icon" v-on:click="edit = !edit" flat icon>
         <v-icon class="top-icon" >edit</v-icon>
       </v-btn>
-      <v-btn class="top-icon" flat icon>
-        <v-icon class="top-icon" >more_vert</v-icon>
-      </v-btn>
+      <v-menu>
+        <v-btn class="top-icon" flat icon slot="activator">
+          <v-icon class="top-icon" >more_vert</v-icon>
+        </v-btn>
+        <v-list>
+          <v-list-tile>
+            <v-list-tile-action>DELETE</v-list-tile-action>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
     </div>
     
     <div class="items">
@@ -67,7 +74,6 @@
     flex-direction: column;
     border-radius: 2px;
     padding: 8px 16px 16px 16px;
-    background-color: white;
   }
   .top {
     display: flex;

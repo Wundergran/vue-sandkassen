@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="page-container">
     <v-app>
-      <Header v-on:login="logIn" v-on:logout="logOut" v-bind:user="user"></Header>
+      <Header v-on:login="logIn" v-on:logout="logOut" v-on:new-list="newDia.show = true" v-bind:user="user"></Header>
 
       <v-content class="content">
         <v-layout justify-center>
@@ -14,11 +14,6 @@
           </v-dialog>
         </v-layout>
       </v-content>
-
-      <v-btn fab @click.stop="newDia.show = true" color="accent" right bottom fixed>
-        <v-icon>add</v-icon>
-      </v-btn>
-
 
       <v-snackbar
         :timeout="snackConf.dur"
@@ -95,7 +90,7 @@ export default {
       if(this.db !== {}){
         var shoplistRefKey = database.ref(this.db.shoplistdbStr).push().key
         database.ref(this.db.shoplistdbStr).child(shoplistRefKey).set(list)
-        database.ref(this.db.userdbStr).child(shoplistRefKey).set('true')
+        database.ref(this.db.userdbStr).child(shoplistRefKey).set(true)
       }
     }
   },

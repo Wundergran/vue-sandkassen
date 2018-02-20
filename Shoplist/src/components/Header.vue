@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar color="primary" prominent>
+    <v-toolbar color="primary" prominent extended>
         <v-toolbar-title class="white--text title-text">Shoplist</v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
@@ -11,7 +11,9 @@
                 <v-btn v-on:click="login">LOGIN</v-btn>
             </div>
         </div>
-        
+        <v-btn fab @click.stop="showNewDia" color="accent" right bottom absolute>
+            <v-icon>add</v-icon>
+        </v-btn>
     </v-toolbar>
 </template>
 
@@ -33,6 +35,9 @@ export default {
         },
         login: function() {
             this.$emit('login')
+        },
+        showNewDia: function() {
+            this.$emit('new-list')
         }
     }
 }
