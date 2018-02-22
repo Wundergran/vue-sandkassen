@@ -104,6 +104,13 @@ export default {
             this.db = db
             this.snackConf.show = true
             console.log(user)
+        }else{
+          firebase.auth().signInAnonymously().catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+          });
         }
     })    
   }
