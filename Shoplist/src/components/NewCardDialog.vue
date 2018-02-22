@@ -11,7 +11,7 @@
             <v-text-field v-model="listData.title" label="List title" single-line></v-text-field>
             <div class="items-container" v-for="item in listData.items" :key="item.id">
                 <v-text-field class="name" v-model="item.name" label="Item name" single-line></v-text-field>
-                <v-text-field class="amount" @keydown.tab="addItem" v-model="item.amount" label="Amount" single-line></v-text-field>
+                <v-text-field class="amount" @keyup.tab.once="addItem" v-model="item.amount" label="Amount" single-line></v-text-field>
             </div>
         </div>
         <div class="buttons flex">
