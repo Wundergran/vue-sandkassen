@@ -29,7 +29,7 @@
       </div>
     </div>
     <v-card-actions class="buttons" v-if="edit">
-      <v-btn color="secondary" flat>Cancel</v-btn>
+      <v-btn color="secondary" flat @click.stop="edit = false">Cancel</v-btn>
       <v-btn v-on:click="updateList" class="action-primary" color="primary">Save</v-btn>
     </v-card-actions>
   </v-card>

@@ -18,7 +18,7 @@
       <v-snackbar
         :timeout="snackConf.dur"
         :left="true"
-        v-model="snackConf.show">Greets to you, {{user.displayName}}
+        v-model="snackConf.show">{{snackGreet}}
       </v-snackbar>
     </v-app>
   </div>
@@ -70,6 +70,15 @@ export default {
       },
       newDia: {
         show: false
+      }
+    }
+  },
+  computed: {
+    snackGreet: function(){
+      if(this.user.displayName === undefined){
+        return 'Greetings to you, Anonymous'
+      }else{
+        return 'Greetings to you, ' + this.user.displayName
       }
     }
   },
