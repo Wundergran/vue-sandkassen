@@ -8,7 +8,8 @@
           <v-container>
             <CardsView v-bind:dataRefs="db"></CardsView>
           </v-container>
-          <LoginDialog class="login-dialog" v-bind:show="loginDia.show"></LoginDialog>
+          <LoginDialog class="login-dialog" v-bind:show="loginDia.show" 
+              v-on:login-anon="loginAnon" v-on:dismiss="loginDia.show = false"></LoginDialog>
           <v-dialog v-model="newDia.show" max-width="500px">
             <NewCardDialog v-on:submitlist="addList($event)"></NewCardDialog>
           </v-dialog>
@@ -90,6 +91,14 @@ export default {
     logIn: function() {
       this.loginDia.show = true
     },
+    loginAnon: function() {
+      firebase.auth().signInAnonymously().catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+          });
+    },
     logOut: function() {
       firebase.auth().signOut()
       this.user = {}
@@ -116,13 +125,6 @@ export default {
             db.shoplistdbStr = ('shoplists')
             this.db = db
             this.snackConf.show = true
-        }else{
-          firebase.auth().signInAnonymously().catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // ...
-          });
         }
     })    
   }

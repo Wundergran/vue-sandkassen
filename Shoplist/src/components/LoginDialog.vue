@@ -1,10 +1,12 @@
 <template>
-  <v-dialog class="login-dialog" v-model="show" max-width="500px">
-      <v-card>
-          <v-card-title>Log in</v-card-title>
-          <Login class="login-btn"></Login>
-      </v-card>
-  </v-dialog>
+    <v-dialog class="login-dialog" v-model="show" max-width="500px">
+        <v-card>
+            <v-card-title>Log in</v-card-title>
+            <Login class="login-btn"></Login>
+
+            <v-btn class="anon-btn" @click.stop="loginAnon" flat color="secondary">Log in as Anon</v-btn>
+        </v-card>
+    </v-dialog>
 </template>
 
 <script>
@@ -14,7 +16,12 @@
         props: [
             'show'
         ],
-
+        methods: {
+            loginAnon: function() {
+                this.$emit('login-anon')
+                this.$emit('dismiss')
+            }
+        },
         components: {
             Login
         }
@@ -24,5 +31,8 @@
 <style scoped>
     login-dialog {
         max-width: 500px;
+    }
+    .anon-btn {
+        margin: auto;
     }
 </style>
