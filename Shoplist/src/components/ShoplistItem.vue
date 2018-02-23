@@ -18,7 +18,7 @@ export default {
     watch: {
         edit: function(val) {
             if(!val){
-                this.$emit('input', item)
+                this.$emit('input', this.item)
             }
         }
     }
