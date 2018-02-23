@@ -1,5 +1,5 @@
 <template>
-    <v-dialog class="login-dialog" v-model="show" max-width="500px">
+    <v-dialog class="login-dialog" v-model="showDia" max-width="500px">
         <v-card>
             <v-card-title>Log in</v-card-title>
             <Login class="login-btn"></Login>
@@ -16,10 +16,25 @@
         props: [
             'show'
         ],
+        data: function() {
+            return {
+                showDia: false
+            }
+        },
         methods: {
             loginAnon: function() {
                 this.$emit('login-anon')
                 this.$emit('dismiss')
+            }
+        },
+        watch: {
+            show: function(val) {
+                this.showDia = val
+            },
+            showDia: function(val) {
+                if(!val){
+                    this.$emit('dismiss')
+                }
             }
         },
         components: {
