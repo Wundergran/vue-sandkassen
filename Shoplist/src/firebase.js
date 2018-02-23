@@ -27,4 +27,5 @@ const listRef = 'shoplists'
 const firebase = Firebase.initializeApp(config)
 var database = firebase.database()
 
-export { data, firebase, Firebase, config, database, listRef, loginConfig }
+export { data, firebase, Firebase, config, 
+        database, listRef, loginConfig }

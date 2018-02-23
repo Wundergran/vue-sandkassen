@@ -75,7 +75,7 @@ export default {
   },
   computed: {
     snackGreet: function(){
-      if(this.user.displayName === undefined){
+      if(this.user.displayName === undefined || this.user.displayName === null){
         return 'Greetings to you, Anonymous'
       }else{
         return 'Greetings to you, ' + this.user.displayName
@@ -112,7 +112,6 @@ export default {
             db.shoplistdbStr = ('shoplists')
             this.db = db
             this.snackConf.show = true
-            console.log(user)
         }else{
           firebase.auth().signInAnonymously().catch(function(error) {
             // Handle Errors here.

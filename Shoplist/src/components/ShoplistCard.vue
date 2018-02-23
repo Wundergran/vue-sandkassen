@@ -12,7 +12,7 @@
         </v-btn>
         <v-list>
           <v-list-tile>
-            <v-list-tile-action>DELETE</v-list-tile-action>
+            <v-list-tile-title @click.stop="deleteCard" id="delete">DELETE</v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-menu>
@@ -61,6 +61,9 @@
     methods: {
       updateList: function() {
 
+      },
+      deleteCard: function() {
+        this.$emit('delete-card', this.dataset['.key'])
       }
     },
     created: function() {
@@ -100,4 +103,9 @@
     display: flex;
     flex-direction: row;
   }
+  
+  #delete {
+    color: red
+  }
+
 </style>
