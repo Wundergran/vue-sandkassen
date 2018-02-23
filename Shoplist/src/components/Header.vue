@@ -4,8 +4,15 @@
         <v-spacer></v-spacer>
         <div>
             <v-btn class="user-container" v-if="loggedIn" flat v-on:click="logout">
-                <div class="user-text subheading">{{user.displayName}}</div>
-                <img class="profile-photo" v-bind:src="user.photoURL">
+                <div class="user-text subheading">
+                    <div v-if="!isAnon">{{user.displayName}}</div>
+                    <div v-else>Anonymous</div>
+                </div>
+                <div>
+                    <img v-if="!isAnon" class="profile-photo" v-bind:src="user.photoURL">
+                    <v-icon v-else color="white">face</v-icon>
+                </div>
+                
             </v-btn>
             <div v-else>
                 <v-btn v-on:click="login">LOGIN</v-btn>
@@ -27,6 +34,9 @@ export default {
     computed: {
         loggedIn: function() {
             return this.user.displayName !== undefined
+        },
+        isAnon: function() {
+            return this.user.isAnonymous
         }
     },
     methods: {
@@ -45,7 +55,7 @@ export default {
 
 <style scoped>
     .user-text{
-        margin: auto;
+        margin: auto 8px;
 
         color: white;
     }
