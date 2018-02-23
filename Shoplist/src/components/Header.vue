@@ -11,7 +11,7 @@
                 <v-btn v-on:click="login">LOGIN</v-btn>
             </div>
         </div>
-        <v-btn fab @click.stop="showNewDia" color="accent" right bottom absolute>
+        <v-btn fab @click.stop="showNewDia" color="secondary" right bottom absolute>
             <v-icon>add</v-icon>
         </v-btn>
     </v-toolbar>

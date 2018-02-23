@@ -38,8 +38,12 @@ import { firebase, database } from './firebase.js'
 
 Vue.use(Vuetify, {
   theme: {
-    primary: "#6A1B9A",
-    secondary: "#CE93D8",
+    primary: "#1976d2",
+    primaryLight: "#63a4ff",
+    primaryDark: "#004ba0",
+    secondary: "#6200ea",
+    secondaryLight: "#9d46ff",
+    secondaryDark: "#0a00b6",
     accent: "#E040FB",
     error: "#f44336",
     warning: "#ffeb3b",
@@ -128,6 +132,13 @@ export default {
 <style>
   :root {
     --background-color: #ECEFF1;
+
+    --color-primary: #1976d2;
+    --color-primary-dark: #004ba0;
+    --color-primary-light: #63a4ff;
+    --color-secondary: #6200ea;
+    --color-secondary-dark: #0a00b6;
+    --color-secondary-light: #9d46ff;
   }
   #app {
     font-family: 'Roboto', sans-serif;
