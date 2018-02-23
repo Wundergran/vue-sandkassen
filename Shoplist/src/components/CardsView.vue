@@ -36,10 +36,14 @@
         },
         watch: {
             dataRefs: function() {
-                const str = this.dataRefs.userdbStr
+                var str = this.dataRefs.userdbStr
                 if(str !== undefined) {
                     this.userdbRef = database.ref(str)
                     this.$bindAsArray('shoplistRefs', database.ref(str))
+                }else{
+                    this.userdbRef = {}
+                    this.$unbind('shoplistRefs')
+                    this.shoplistRefs = {}
                 }
             }
         },

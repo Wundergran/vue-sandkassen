@@ -102,6 +102,7 @@ export default {
     logOut: function() {
       firebase.auth().signOut()
       this.user = {}
+      this.db = {}
     },
     addList: function(event) {
       var list = {

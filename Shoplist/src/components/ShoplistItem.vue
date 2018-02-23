@@ -15,6 +15,13 @@
 export default {
     name: 'shoplist-item',
     props: ['item', 'edit'],
+    watch: {
+        edit: function(val) {
+            if(!val){
+                this.$emit('input', item)
+            }
+        }
+    }
 }
 </script>
 
