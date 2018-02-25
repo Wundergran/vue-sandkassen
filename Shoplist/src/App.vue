@@ -113,8 +113,7 @@ export default {
       if(this.db !== {}) {
         var shoplistRef = database.ref(this.db.shoplistdbStr).push()
         var itemsRef = shoplistRef.child('items')
-        var i;
-        for(i in list.items){
+        for(var i in list.items){
           itemsRef.push().set(list.items[i])
         }
         shoplistRef.child('title').set(list.title)
