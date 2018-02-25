@@ -5,7 +5,8 @@
             <v-text-field class="edit-amount" v-model="item.amount" label="Amount" single-line></v-text-field>
         </div>
         <div class="listItem" v-else>
-            <div class="name flex body-2">{{item.name}}</div>
+            <v-checkbox v-model="collected"></v-checkbox>
+            <div class="name flex body-2">{{item.name}} {{key}}</div>
             <div class="amount body-1">{{item.amount}}</div>
         </div>
     </div>
@@ -14,14 +15,22 @@
 <script>
 export default {
     name: 'shoplist-item',
-    props: ['item', 'edit'],
+    props: ['item', 'edit', 'key'],
+    data: function() {
+        return {
+            collected: this.item.collected
+        }
+    },
     watch: {
         edit: function(val) {
             if(!val){
                 this.$emit('input', this.item)
             }
+        },
+        collected: function(newVal){
+            this.$emit('item-updated', this.item)
         }
-    }
+    },
 }
 </script>
 

@@ -24,8 +24,8 @@
         <div class="subheading">Amount</div>
       </div>
       <hr>
-      <div v-for="item in listData.items" :key="item.name">
-        <ShoplistItem v-bind:item="item" v-bind:edit="edit"></ShoplistItem>
+      <div v-for="(value, key) in listData.items" :key="key">
+        <ShoplistItem :item="value" :edit="edit" :key="key" v-on:item-updated="updateItem($event)"></ShoplistItem>
       </div>
     </div>
     <v-card-actions class="buttons" v-if="edit">
@@ -38,7 +38,7 @@
 <script>
   import Vue from 'vue'
   import ShoplistItem from './ShoplistItem.vue'
-  import { database, listRef } from '../firebase.js'
+  import { database, listRef, firebase } from '../firebase.js'
 
   export default {
     name: 'ShoplistCard',
@@ -64,10 +64,22 @@
       },
       deleteCard: function() {
         this.$emit('delete-card', this.dataset['.key'])
+      },
+      updateItem: function(item) {
+        console.log(item)
       }
     },
     created: function() {
       this.$bindAsObject('listData', this.dataref)
+      /* this.dataref.on('value', function(snapshot) {
+        var list = {}
+        list.title = snapshot.child('title').val()
+        list.completed = snapshot.child('completed').val()
+        list.color = snapshot.child('color').val()
+        list.items = snapshot.child('items').val()
+
+        this.listData = list
+      }) */
     }
   }
 </script>

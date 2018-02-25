@@ -108,7 +108,8 @@ export default {
       var list = {
         title: event.title,
         items: event.items,
-        completed: event.completed
+        completed: event.completed,
+        color: event.color
       }
       if(this.db !== {}) {
         var shoplistRef = database.ref(this.db.shoplistdbStr).push()
@@ -118,6 +119,7 @@ export default {
         }
         shoplistRef.child('title').set(list.title)
         shoplistRef.child('completed').set(list.completed)
+        shoplistRef.child('color').set(list.color)
 
         database.ref(this.db.userdbStr).child(shoplistRef.key).set(true)
       }

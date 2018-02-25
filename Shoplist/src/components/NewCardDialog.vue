@@ -30,6 +30,7 @@
                     title: '',
                     items: [],
                     completed: false,
+                    color: 0
                 }
             }
         },
