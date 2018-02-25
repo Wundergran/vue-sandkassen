@@ -110,10 +110,17 @@ export default {
         items: event.items,
         completed: event.completed
       }
-      if(this.db !== {}){
-        var shoplistRefKey = database.ref(this.db.shoplistdbStr).push().key
-        database.ref(this.db.shoplistdbStr).child(shoplistRefKey).set(list)
-        database.ref(this.db.userdbStr).child(shoplistRefKey).set(true)
+      if(this.db !== {}) {
+        var shoplistRef = database.ref(this.db.shoplistdbStr).push()
+        var itemsRef = shoplistRef.child('items')
+        var i;
+        for(i in list.items){
+          itemsRef.push().set(list.items[i])
+        }
+        shoplistRef.child('title').set(list.title)
+        shoplistRef.child('completed').set(list.completed)
+
+        database.ref(this.db.userdbStr).child(shoplistRef.key).set(true)
       }
     }
   },
