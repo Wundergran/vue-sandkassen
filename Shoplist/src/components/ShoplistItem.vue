@@ -5,7 +5,7 @@
             <v-text-field class="edit-amount" v-model="item.amount" label="Amount" single-line></v-text-field>
         </div>
         <div class="listItem" v-else>
-            <v-checkbox v-model="collected"></v-checkbox>
+            <v-checkbox class="checkbox" v-model="collected" hide-details></v-checkbox>
             <div class="name flex body-2">{{item.name}} {{key}}</div>
             <div class="amount body-1">{{item.amount}}</div>
         </div>
@@ -47,6 +47,11 @@ export default {
     .edit-amount {
         max-width: 100px;
         margin-left: 8px;
+    }
+    .checkbox {
+        width: 48px;
+        height: 48px;
+        
     }
     amount {
         max-width: 100px;
